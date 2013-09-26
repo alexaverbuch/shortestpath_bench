@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 public class CsvFileReader implements Iterator<String[]>
 {
     private static final Logger logger = Logger.getLogger( CsvFileReader.class );
-    private final Pattern COLUMN_SEPARATOR_PATTERN = Pattern.compile( "\\ " );
+    private final Pattern columnSeparatorPattern;
 
     private final BufferedReader csvReader;
 
@@ -23,7 +23,13 @@ public class CsvFileReader implements Iterator<String[]>
 
     public CsvFileReader( File csvFile ) throws FileNotFoundException
     {
+        this( csvFile, "\\ " );
+    }
+
+    public CsvFileReader( File csvFile, String regexSeparator ) throws FileNotFoundException
+    {
         this.csvReader = new BufferedReader( new FileReader( csvFile ) );
+        this.columnSeparatorPattern = Pattern.compile( regexSeparator );
     }
 
     @Override
@@ -70,7 +76,7 @@ public class CsvFileReader implements Iterator<String[]>
 
     private String[] parseLine( String csvLine )
     {
-        return COLUMN_SEPARATOR_PATTERN.split( csvLine, -1 );
+        return columnSeparatorPattern.split( csvLine, -1 );
     }
 
     private boolean closeReader()
