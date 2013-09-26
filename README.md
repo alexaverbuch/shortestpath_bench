@@ -21,60 +21,164 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Java				: Java HotSpot 64-Bit VM
 	Neo4j				: Neo4j Enterprise 1.9.4
 
-### Results
+## Results
+
+### Single Shorest Path
+
 **- Shortest Path -**
 
-		Run Time (ms)
-			COUNT			 : 1000
-			MIN				 : 0
-			MAX				 : 25
-			50th percentile	 : 1
-			90th percentile	 : 5
-			95th percentile	 : 9
-			99th percentile	 : 12
-		Path Length
-			MIN			 	 : 1
-			MAX				 : 7
-			50th percentile	 : 4
-			90th percentile	 : 5
-			95th percentile	 : 6
-			99th percentile	 : 7
+	Run Time (ms)
+		COUNT		 : 1000
+		MIN		 : 0
+		MAX		 : 222
+		50th PERCENTILE	 : 1
+		90th PERCENTILE	 : 6
+		95th PERCENTILE	 : 10
+		99th PERCENTILE	 : 18
+		MEAN		 : 2.769
+	Path Length
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 7
+		50th PERCENTILE	 : 4
+		90th PERCENTILE	 : 5
+		95th PERCENTILE	 : 6
+		99th PERCENTILE	 : 7
+		MEAN		 : 3.613
 
 **- Unweighted Dijkstra -**
 
-		Run Time (ms)
-			COUNT			 : 1000
-			MIN				 : 0
-			MAX				 : 11495
-			50th percentile	 : 130
-			90th percentile	 : 630
-			95th percentile	 : 989
-			99th percentile	 : 2380
-		Path Length
-			MIN				 : 1
-			MAX				 : 7
-			50th percentile	 : 4
-			90th percentile	 : 5
-			95th percentile	 : 6
-			99th percentile	 : 7
+	Run Time (ms)
+		COUNT		 : 1000
+		MIN		 : 0
+		MAX		 : 12365
+		50th PERCENTILE	 : 143
+		90th PERCENTILE	 : 651
+		95th PERCENTILE	 : 1093
+		99th PERCENTILE	 : 2150
+		MEAN		 : 294.47
+	Path Length
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 7
+		50th PERCENTILE	 : 4
+		90th PERCENTILE	 : 5
+		95th PERCENTILE	 : 6
+		99th PERCENTILE	 : 7
+		MEAN		 : 3.613
 
 **- Weighted Dijkstra -**
 
-		Run Time (ms)
-			COUNT			 : 1000
-			MIN				 : 0
-			MAX				 : 565
-			50th percentile	 : 118
-			90th percentile	 : 195
-			95th percentile	 : 214
-			99th percentile	 : 332
-		Path Length
-			MIN				 : 1
-			MAX				 : 36
-			50th percentile	 : 13
-			90th percentile	 : 20
-			95th percentile	 : 22
-			99th percentile	 : 28
+	Run Time (ms)
+		COUNT		 : 1000
+		MIN		 : 0
+		MAX		 : 589
+		50th PERCENTILE	 : 134
+		90th PERCENTILE	 : 209
+		95th PERCENTILE	 : 241
+		99th PERCENTILE	 : 363
+		MEAN		 : 126.423
+	Path Length
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 32
+		50th PERCENTILE	 : 13
+		90th PERCENTILE	 : 21
+		95th PERCENTILE	 : 23
+		99th PERCENTILE	 : 28
+		MEAN		 : 13.146
+
+### All Shortest Paths
+
+**- Shortest Path -**
+
+	Run Time (ms)
+		COUNT		 : 1000
+		MIN		 : 0
+		MAX		 : 159
+		50th PERCENTILE	 : 2
+		90th PERCENTILE	 : 7
+		95th PERCENTILE	 : 10
+		99th PERCENTILE	 : 17
+		MEAN		 : 3.059
+	Path Length
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 7
+		50th PERCENTILE	 : 4
+		90th PERCENTILE	 : 5
+		95th PERCENTILE	 : 6
+		99th PERCENTILE	 : 7
+		MEAN		 : 3.613
+	Discovered Path Count
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 515
+		50th PERCENTILE	 : 2
+		90th PERCENTILE	 : 15
+		95th PERCENTILE	 : 25
+		99th PERCENTILE	 : 68
+		MEAN		 : 6.975
+
+**- Unweighted Dijkstra -**
+
+	Run Time (ms)
+		COUNT		 : 1000
+		MIN		 : 0
+		MAX		 : 12580
+		50th PERCENTILE	 : 132
+		90th PERCENTILE	 : 652
+		95th PERCENTILE	 : 1064
+		99th PERCENTILE	 : 2203
+		MEAN		 : 293.552
+	Path Length
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 7
+		50th PERCENTILE	 : 4
+		90th PERCENTILE	 : 5
+		95th PERCENTILE	 : 6
+		99th PERCENTILE	 : 7
+		MEAN		 : 3.613
+	Discovered Path Count
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 515
+		50th PERCENTILE	 : 2
+		90th PERCENTILE	 : 15
+		95th PERCENTILE	 : 25
+		99th PERCENTILE	 : 68
+		MEAN		 : 6.975
+
+**- Weighted Dijkstra -**
+
+	Run Time (ms)
+		COUNT		 : 1000
+		MIN		 : 0
+		MAX		 : 609
+		50th PERCENTILE	 : 129
+		90th PERCENTILE	 : 209
+		95th PERCENTILE	 : 241
+		99th PERCENTILE	 : 362
+		MEAN		 : 124.228
+	Path Length
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 32
+		50th PERCENTILE	 : 13
+		90th PERCENTILE	 : 21
+		95th PERCENTILE	 : 23
+		99th PERCENTILE	 : 28
+		MEAN		 : 13.146
+	Discovered Path Count
+		COUNT		 : 1000
+		MIN		 : 1
+		MAX		 : 12
+		50th PERCENTILE	 : 1
+		90th PERCENTILE	 : 3
+		95th PERCENTILE	 : 4
+		99th PERCENTILE	 : 8
+		MEAN		 : 1.665
 
 
 ### Recreate at home
