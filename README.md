@@ -3,16 +3,16 @@ Shortest Path in Neo4j
 
 ### Environment
 
-	Processor		: 4x Intel i3-2330M CPU @ 2.20GHz (2 cores, with HyperThreading)
-	Memory			: 6GB
+	Processor			: 4x Intel i3-2330M CPU @ 2.20GHz (2 cores, with HyperThreading)
+	Memory				: 6GB
 	Operating System	: Ubuntu 12.04.3 LTS
-	Java			: Java HotSpot 64-Bit VM
-	Neo4j			: Neo4j Enterprise 1.9.4
+	Java				: Java HotSpot 64-Bit VM
+	Neo4j				: Neo4j Enterprise 1.9.4
 
 ### Graph
-	Source		http://snap.stanford.edu/data/egonets-Facebook.html
-	Nodes		4040
-	Relationships	88234
+	Source			: http://snap.stanford.edu/data/egonets-Facebook.html
+	Nodes			: 4,040
+	Relationships	: 88,234
 
 ### Experiment
 Compare performance of different path finding algorithms.
@@ -73,3 +73,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 			90th percentile	20
 			95th percentile	22
 			99th percentile	28
+
+## TODO
+* Generate file with start and node IDs so experiment is more easily repeatable by anyone else
+* Add mean to Run Time results
