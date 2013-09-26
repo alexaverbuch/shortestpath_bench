@@ -2,7 +2,7 @@ Shortest Path in Neo4j
 ---------------------
 
 ### Experiment
-Originally created as a response to the incorrect data presented in [this blog post](http://istc-bigdata.org/index.php/benchmarking-graph-databases/),
+Originally created as a response to the data presented in [this blog post](http://istc-bigdata.org/index.php/benchmarking-graph-databases/),
 this experiment compares the performance of different path finding algorithm implementations in Neo4j.
 The start and end nodes are selected uniformly at random from across the entire node space (~4000 nodes).
 Each algorithm is run 1000 times, using different (well, randomly selected) start and end nodes each time.
