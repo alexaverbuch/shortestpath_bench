@@ -1,6 +1,5 @@
 # Package Files #
 *.class
-*.jar
 .project
 .classpath
 .settings/
