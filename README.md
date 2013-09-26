@@ -217,7 +217,7 @@ After step 4. below, the project directory should look as follows:
 
 	https://github.com/dmontag/neo4j-import
 
- **(4) Load Generated .csv Files into Neo4j:** 
+ **(4) Load Generated .csv Files into Neo4j using neo4j-import:** 
 
 	./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv
 
