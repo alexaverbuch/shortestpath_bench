@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class CsvFileWriter
 {
-    private final String COLUMN_SEPARATOR = " ";
+    private final String COLUMN_SEPARATOR = ",";
     private BufferedWriter bufferedWriter = null;
 
     public CsvFileWriter( File file ) throws IOException
@@ -17,11 +17,12 @@ public class CsvFileWriter
 
     public void writeLine( String... columns ) throws IOException
     {
-        for ( String column : columns )
+        for ( int i = 0; i < columns.length - 1; i++ )
         {
-            bufferedWriter.write( column );
+            bufferedWriter.write( columns[i] );
             bufferedWriter.write( COLUMN_SEPARATOR );
         }
+        bufferedWriter.write( columns[columns.length - 1] );
         bufferedWriter.newLine();
     }
 
