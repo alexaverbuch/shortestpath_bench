@@ -5,7 +5,8 @@ Shortest Path in Neo4j
 
 	Processor			: 4x Intel i3-2330M CPU @ 2.20GHz (2 cores, with HyperThreading)
 	Memory				: 6GB
-	Operating System	: Ubuntu 12.04.3 LTS
+	Storage				: INTEL SSDSA2BW16 160GB SSD drive
+	Operating System	: Ubuntu 12.04.3 LTS (Linux 3.2.0-52-generic (x86_64))
 	Java				: Java HotSpot 64-Bit VM
 	Neo4j				: Neo4j Enterprise 1.9.4
 
