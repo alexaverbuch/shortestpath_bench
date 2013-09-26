@@ -1,6 +1,17 @@
 Shortest Path in Neo4j
 ---------------------
 
+### Experiment
+Originally created as a response to the incorrect data presented in [this blog post](http://istc-bigdata.org/index.php/benchmarking-graph-databases/),
+this experiment compares the performance of different path finding algorithm implementations in Neo4j.
+The start and end nodes are selected uniformly at random from across the entire node space (~4000 nodes).
+Each algorithm is run 1000 times, using different (well, randomly selected) start and end nodes each time.
+
+### Dataset
+	Source			: http://snap.stanford.edu/data/egonets-Facebook.html
+	Nodes			: 4,040
+	Relationships	: 88,234
+
 ### Environment
 
 	Processor			: 4x Intel i3-2330M CPU @ 2.20GHz (2 cores, with HyperThreading)
@@ -9,16 +20,6 @@ Shortest Path in Neo4j
 	Operating System	: Ubuntu 12.04.3 LTS (Linux 3.2.0-52-generic (x86_64))
 	Java				: Java HotSpot 64-Bit VM
 	Neo4j				: Neo4j Enterprise 1.9.4
-
-### Graph
-	Source			: http://snap.stanford.edu/data/egonets-Facebook.html
-	Nodes			: 4,040
-	Relationships	: 88,234
-
-### Experiment
-Compare performance of different path finding algorithms.
-Start and end nodes are selected uniformly at random from across the entire node space (~4000 nodes).
-Each algorithm is run 1000 times, using different (well, randomly selected) start and end nodes each time.
 
 ### Results
 **- Shortest Path -**
@@ -77,8 +78,22 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 
 ### Recreate at home
 
- 1. **Compile:** `mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6`
- 2. **Generate Graph .csv Files:** `mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator`
- 3. **Build neo4j-importer (see README):** `https://github.com/dmontag/neo4j-import`
- 4. **Load Generated .csv Files into Neo4j:** `./run.sh /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
- 5. **Run Benchmark:** `mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench`
+ 1. **Compile:** 
+ 
+`mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6`
+
+ 2. **Generate Graph .csv Files:** 
+
+`mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator`
+
+ 3. **Build neo4j-importer (see README):** 
+
+`https://github.com/dmontag/neo4j-import`
+
+ 4. **Load Generated .csv Files into Neo4j:** 
+
+`./run.sh /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
+
+ 5. **Run Benchmark:**
+
+`mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench`
