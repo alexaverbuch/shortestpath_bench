@@ -78,6 +78,26 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 
 ### Recreate at home
 
+After step 4. below, the project directory should look as follows:
+
+	shortestpath_bench/
+		data/
+			raw/
+			generated/
+				nodes.csv
+				relationships.csv
+				path-start-and-end-nodes.csv
+		db/
+			...
+		lib/
+			...
+		pom.xml  
+		README.md  
+		src/
+			...
+		target/
+			...
+
  1. **Compile:** 
  
 `mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6`
@@ -92,7 +112,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 
  4. **Load Generated .csv Files into Neo4j:** 
 
-`./run.sh /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
+`./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
 
  5. **Run Benchmark:**
 

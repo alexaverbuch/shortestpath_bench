@@ -19,6 +19,7 @@ import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
+import org.neo4j.helpers.collection.IteratorUtil;
 import org.neo4j.kernel.Traversal;
 
 // mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench
@@ -34,7 +35,7 @@ public class ShortestPathBench
         System.out.println( "Relationship Count = " + GraphUtils.relationshipCount( db, 1000 ) );
         System.out.println( "Relationship Property Count = " + GraphUtils.relationshipPropertyCount( db, 1000 ) );
 
-        int runCount = 1000;
+        int runCount = 10;
         List<Pair<Node>> startAndEndNodes = loadStartAndEndNodes( db, runCount );
 
         Expander expander = Traversal.expanderForAllTypes();
@@ -55,9 +56,15 @@ public class ShortestPathBench
 
         PathFinder<? extends Path> weightedDijkstra = GraphAlgoFactory.dijkstra( expander, evaluator );
 
-        System.out.println( "- Shortest Path -\n" + runFindSinglePath( shortestPath, startAndEndNodes ) );
-        System.out.println( "- Unweighted Dijkstra -\n" + runFindSinglePath( unweightedDijkstra, startAndEndNodes ) );
-        System.out.println( "- Weighted Dijkstra -\n" + runFindSinglePath( weightedDijkstra, startAndEndNodes ) );
+        // System.out.println( "- Shortest Path -\n" + runFindSinglePath(
+        // shortestPath, startAndEndNodes ) );
+        // System.out.println( "- Unweighted Dijkstra -\n" + runFindSinglePath(
+        // unweightedDijkstra, startAndEndNodes ) );
+        // System.out.println( "- Weighted Dijkstra -\n" + runFindSinglePath(
+        // weightedDijkstra, startAndEndNodes ) );
+        System.out.println( "- Shortest Path -\n" + runFindAllPaths( shortestPath, startAndEndNodes ) );
+        System.out.println( "- Unweighted Dijkstra -\n" + runFindAllPaths( unweightedDijkstra, startAndEndNodes ) );
+        System.out.println( "- Weighted Dijkstra -\n" + runFindAllPaths( weightedDijkstra, startAndEndNodes ) );
 
         db.shutdown();
     }
@@ -83,17 +90,20 @@ public class ShortestPathBench
     {
         Histogram timeHistogram = new Histogram( TimeUnit.MILLISECONDS.convert( 30, TimeUnit.SECONDS ), 5 );
         Histogram pathLengthHistogram = new Histogram( 10000, 5 );
-        Path path = null;
+        Histogram pathCountHistogram = new Histogram( 10000, 5 );
 
         for ( Pair<Node> startAndEndNode : startAndEndNodes )
         {
             long startTime = System.currentTimeMillis();
-            pathFinder.findAllPaths( startAndEndNode.getFirst(), startAndEndNode.getSecond() );
+            Iterable<? extends Path> paths = pathFinder.findAllPaths( startAndEndNode.getFirst(),
+                    startAndEndNode.getSecond() );
             long runTime = System.currentTimeMillis() - startTime;
             timeHistogram.recordValue( runTime );
-            pathLengthHistogram.recordValue( path.length() );
+            pathLengthHistogram.recordValue( paths.iterator().next().length() );
+            pathCountHistogram.recordValue( IteratorUtil.count( paths ) );
         }
-        return histogramString( timeHistogram, "Run Time (ms)" ) + histogramString( pathLengthHistogram, "Path Length" );
+        return histogramString( timeHistogram, "Run Time (ms)" ) + histogramString( pathLengthHistogram, "Path Length" )
+               + histogramString( pathCountHistogram, "Discovered Path Count" );
     }
 
     public static String histogramString( Histogram histogram, String name )

@@ -11,3 +11,4 @@ bin/
 build.sh~
 README.md~
 db/
+data/generated/
