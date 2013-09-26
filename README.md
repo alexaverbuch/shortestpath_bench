@@ -23,7 +23,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 
 ## Results
 
-### Single Shorest Path
+### Single Shortest Path
 
 **- Shortest Path -**
 
@@ -88,7 +88,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 		99th PERCENTILE	 : 28
 		MEAN			 : 13.146
 
-### All Shortest Paths
+### All Shortest Paths (Run Time is for retrieving the 1st path only)
 
 **- Shortest Path -**
 
