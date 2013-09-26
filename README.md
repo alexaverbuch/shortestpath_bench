@@ -185,7 +185,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 
 Follow these instructions if you wish to recreate the experiment at home.
 
-After step 4. below, the project directory should look as follows:
+After step (4) below, the project directory should look as follows:
 
 	shortestpath_bench/
 		data/
