@@ -107,10 +107,10 @@ public class ShortestPathBench
             long startTime = System.currentTimeMillis();
             Iterable<? extends Path> paths = pathFinder.findAllPaths( startAndEndNode.getFirst(),
                     startAndEndNode.getSecond() );
-            long runTime = System.currentTimeMillis() - startTime;
-            timeHistogram.recordValue( runTime );
             pathLengthHistogram.recordValue( paths.iterator().next().length() );
+            long runTime = System.currentTimeMillis() - startTime;
             pathCountHistogram.recordValue( IteratorUtil.count( paths ) );
+            timeHistogram.recordValue( runTime );
         }
         return histogramString( timeHistogram, "Run Time (ms)" ) + histogramString( pathLengthHistogram, "Path Length" )
                + histogramString( pathCountHistogram, "Discovered Path Count" );
