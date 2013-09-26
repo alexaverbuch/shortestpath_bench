@@ -23,56 +23,56 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 **- Shortest Path -**
 
 		Run Time (ms)
-			COUNT		1000
-			MIN		0
-			MAX		25
-			50th percentile	1
-			90th percentile	5
-			95th percentile	9
-			99th percentile	12
+			COUNT			 : 1000
+			MIN				 : 0
+			MAX				 : 25
+			50th percentile	 : 1
+			90th percentile	 : 5
+			95th percentile	 : 9
+			99th percentile	 : 12
 		Path Length
-			MIN		1
-			MAX		7
-			50th percentile	4
-			90th percentile	5
-			95th percentile	6
-			99th percentile	7
+			MIN			 	 : 1
+			MAX				 : 7
+			50th percentile	 : 4
+			90th percentile	 : 5
+			95th percentile	 : 6
+			99th percentile	 : 7
 
 **- Unweighted Dijkstra -**
 
 		Run Time (ms)
-			COUNT		1000
-			MIN		0
-			MAX		11495
-			50th percentile	130
-			90th percentile	630
-			95th percentile	989
-			99th percentile	2380
+			COUNT			 : 1000
+			MIN				 : 0
+			MAX				 : 11495
+			50th percentile	 : 130
+			90th percentile	 : 630
+			95th percentile	 : 989
+			99th percentile	 : 2380
 		Path Length
-			MIN		1
-			MAX		7
-			50th percentile	4
-			90th percentile	5
-			95th percentile	6
-			99th percentile	7
+			MIN				 : 1
+			MAX				 : 7
+			50th percentile	 : 4
+			90th percentile	 : 5
+			95th percentile	 : 6
+			99th percentile	 : 7
 
 **- Weighted Dijkstra -**
 
 		Run Time (ms)
-			COUNT		1000
-			MIN		0
-			MAX		565
-			50th percentile	118
-			90th percentile	195
-			95th percentile	214
-			99th percentile	332
+			COUNT			 : 1000
+			MIN				 : 0
+			MAX				 : 565
+			50th percentile	 : 118
+			90th percentile	 : 195
+			95th percentile	 : 214
+			99th percentile	 : 332
 		Path Length
-			MIN		1
-			MAX		36
-			50th percentile	13
-			90th percentile	20
-			95th percentile	22
-			99th percentile	28
+			MIN				 : 1
+			MAX				 : 36
+			50th percentile	 : 13
+			90th percentile	 : 20
+			95th percentile	 : 22
+			99th percentile	 : 28
 
 ## TODO
 * Generate file with start and node IDs so experiment is more easily repeatable by anyone else
