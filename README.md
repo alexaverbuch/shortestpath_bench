@@ -77,66 +77,6 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 			99th percentile	 : 28
 
 
-- Shortest Path -
-	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 222
-		50th PERCENTILE	 : 1
-		90th PERCENTILE	 : 6
-		95th PERCENTILE	 : 10
-		99th PERCENTILE	 : 18
-		MEAN		 : 2.769
-	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 7
-		50th PERCENTILE	 : 4
-		90th PERCENTILE	 : 5
-		95th PERCENTILE	 : 6
-		99th PERCENTILE	 : 7
-		MEAN		 : 3.613
-
-- Unweighted Dijkstra -
-	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 12365
-		50th PERCENTILE	 : 143
-		90th PERCENTILE	 : 651
-		95th PERCENTILE	 : 1093
-		99th PERCENTILE	 : 2150
-		MEAN		 : 294.47
-	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 7
-		50th PERCENTILE	 : 4
-		90th PERCENTILE	 : 5
-		95th PERCENTILE	 : 6
-		99th PERCENTILE	 : 7
-		MEAN		 : 3.613
-
-- Weighted Dijkstra -
-	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 589
-		50th PERCENTILE	 : 134
-		90th PERCENTILE	 : 209
-		95th PERCENTILE	 : 241
-		99th PERCENTILE	 : 363
-		MEAN		 : 126.423
-	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 32
-		50th PERCENTILE	 : 13
-		90th PERCENTILE	 : 21
-		95th PERCENTILE	 : 23
-		99th PERCENTILE	 : 28
-		MEAN		 : 13.146
-
 ### Recreate at home
 
 Follow these instructions if you wish to recreate the experiment at home.
