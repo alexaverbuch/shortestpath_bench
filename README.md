@@ -1,7 +1,7 @@
 Shortest Path in Neo4j
 ---------------------
 
-# Environment
+### Environment
 
 	Processor		: 4x Intel i3-2330M CPU @ 2.20GHz (2 cores, with HyperThreading)
 	Memory			: 6GB
@@ -9,14 +9,20 @@ Shortest Path in Neo4j
 	Java			: Java HotSpot 64-Bit VM
 	Neo4j			: Neo4j Enterprise 1.9.4
 
-# Graph
+### Graph
 	Source		http://snap.stanford.edu/data/egonets-Facebook.html
 	Nodes		4040
 	Relationships	88234
 
-# Results
-	- Shortest Path -
-		Run Time
+### Experiment
+Compare performance of different path finding algorithms.
+Start and end nodes are selected uniformly at random from across the entire node space (~4000 nodes).
+Each algorithm is run 1000 times, using different (well, randomly selected) start and end nodes each time.
+
+### Results
+**- Shortest Path -**
+
+		Run Time (ms)
 			COUNT		1000
 			MIN		0
 			MAX		25
@@ -32,8 +38,9 @@ Shortest Path in Neo4j
 			95th percentile	6
 			99th percentile	7
 
-	- Unweighted Dijkstra -
-		Run Time
+**- Unweighted Dijkstra -**
+
+		Run Time (ms)
 			COUNT		1000
 			MIN		0
 			MAX		11495
@@ -49,8 +56,9 @@ Shortest Path in Neo4j
 			95th percentile	6
 			99th percentile	7
 
-	- Weighted Dijkstra -
-		Run Time
+**- Weighted Dijkstra -**
+
+		Run Time (ms)
 			COUNT		1000
 			MIN		0
 			MAX		565
