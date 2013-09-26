@@ -75,6 +75,10 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 			95th percentile	 : 22
 			99th percentile	 : 28
 
-### TODO
-* Generate file with start and node IDs so experiment is more easily repeatable by anyone else
-* Add mean to Run Time results
+### Recreate at home
+
+ 1. **Compile:** `mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6`
+ 2. **Generate Graph .csv Files:** `mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator`
+ 3. **Build neo4j-importer (see README):** `https://github.com/dmontag/neo4j-import`
+ 4. **Load Generated .csv Files into Neo4j:** `./run.sh /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
+ 5. **Run Benchmark:** `mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench`
