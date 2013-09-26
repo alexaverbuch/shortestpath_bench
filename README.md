@@ -114,6 +114,6 @@ After step 4. below, the project directory should look as follows:
 
 `./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
 
- 5. **Run Benchmark:**
+ 5. **Run Benchmark (select 'single' to find one shortest path OR 'all' to find all shortest paths):**
 
-`mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench`
+`MAVEN_OPTS="-server -XX:+UseConcMarkSweepGC -Xmx512m" mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench -Dexec.arguments="single"`

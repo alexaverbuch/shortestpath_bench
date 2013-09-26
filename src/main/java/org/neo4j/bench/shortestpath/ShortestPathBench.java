@@ -3,6 +3,7 @@ package org.neo4j.bench.shortestpath;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -27,6 +28,12 @@ public class ShortestPathBench
 {
     public static void main( String[] args ) throws IOException
     {
+        if ( args.length == 0 || ( args[0].equals( "all" ) == false && args[0].equals( "single" ) == false ) )
+        {
+            System.out.println( "\nERROR\nExpected parameter: 'all' OR 'single'\n" );
+            return;
+        }
+
         GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabaseBuilder( Config.DB_DIR ).setConfig(
                 Config.NEO4J_CONFIG ).newGraphDatabase();
 
@@ -35,7 +42,7 @@ public class ShortestPathBench
         System.out.println( "Relationship Count = " + GraphUtils.relationshipCount( db, 1000 ) );
         System.out.println( "Relationship Property Count = " + GraphUtils.relationshipPropertyCount( db, 1000 ) );
 
-        int runCount = 10;
+        int runCount = 1000;
         List<Pair<Node>> startAndEndNodes = loadStartAndEndNodes( db, runCount );
 
         Expander expander = Traversal.expanderForAllTypes();
@@ -56,15 +63,18 @@ public class ShortestPathBench
 
         PathFinder<? extends Path> weightedDijkstra = GraphAlgoFactory.dijkstra( expander, evaluator );
 
-        // System.out.println( "- Shortest Path -\n" + runFindSinglePath(
-        // shortestPath, startAndEndNodes ) );
-        // System.out.println( "- Unweighted Dijkstra -\n" + runFindSinglePath(
-        // unweightedDijkstra, startAndEndNodes ) );
-        // System.out.println( "- Weighted Dijkstra -\n" + runFindSinglePath(
-        // weightedDijkstra, startAndEndNodes ) );
-        System.out.println( "- Shortest Path -\n" + runFindAllPaths( shortestPath, startAndEndNodes ) );
-        System.out.println( "- Unweighted Dijkstra -\n" + runFindAllPaths( unweightedDijkstra, startAndEndNodes ) );
-        System.out.println( "- Weighted Dijkstra -\n" + runFindAllPaths( weightedDijkstra, startAndEndNodes ) );
+        if ( args[0].equals( "single" ) )
+        {
+            System.out.println( "- Shortest Path -\n" + runFindSinglePath( shortestPath, startAndEndNodes ) );
+            System.out.println( "- Unweighted Dijkstra -\n" + runFindSinglePath( unweightedDijkstra, startAndEndNodes ) );
+            System.out.println( "- Weighted Dijkstra -\n" + runFindSinglePath( weightedDijkstra, startAndEndNodes ) );
+        }
+        else
+        {
+            System.out.println( "- Shortest Path -\n" + runFindAllPaths( shortestPath, startAndEndNodes ) );
+            System.out.println( "- Unweighted Dijkstra -\n" + runFindAllPaths( unweightedDijkstra, startAndEndNodes ) );
+            System.out.println( "- Weighted Dijkstra -\n" + runFindAllPaths( weightedDijkstra, startAndEndNodes ) );
+        }
 
         db.shutdown();
     }
