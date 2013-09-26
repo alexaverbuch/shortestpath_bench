@@ -28,157 +28,157 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 **- Shortest Path -**
 
 	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 222
+		COUNT			 : 1000
+		MIN				 : 0
+		MIN				 : 222
 		50th PERCENTILE	 : 1
 		90th PERCENTILE	 : 6
 		95th PERCENTILE	 : 10
 		99th PERCENTILE	 : 18
-		MEAN		 : 2.769
+		MEAN			 : 2.769
 	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 7
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
 		99th PERCENTILE	 : 7
-		MEAN		 : 3.613
+		MEAN			 : 3.613
 
 **- Unweighted Dijkstra -**
 
 	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 12365
+		COUNT			 : 1000
+		MIN				 : 0
+		MIN				 : 12365
 		50th PERCENTILE	 : 143
 		90th PERCENTILE	 : 651
 		95th PERCENTILE	 : 1093
 		99th PERCENTILE	 : 2150
-		MEAN		 : 294.47
+		MEAN			 : 294.47
 	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 7
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
 		99th PERCENTILE	 : 7
-		MEAN		 : 3.613
+		MEAN			 : 3.613
 
 **- Weighted Dijkstra -**
 
 	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 589
+		COUNT			 : 1000
+		MIN				 : 0
+		MIN				 : 589
 		50th PERCENTILE	 : 134
 		90th PERCENTILE	 : 209
 		95th PERCENTILE	 : 241
 		99th PERCENTILE	 : 363
-		MEAN		 : 126.423
+		MEAN			 : 126.423
 	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 32
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 32
 		50th PERCENTILE	 : 13
 		90th PERCENTILE	 : 21
 		95th PERCENTILE	 : 23
 		99th PERCENTILE	 : 28
-		MEAN		 : 13.146
+		MEAN			 : 13.146
 
 ### All Shortest Paths
 
 **- Shortest Path -**
 
 	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 159
+		COUNT			 : 1000
+		MIN				 : 0
+		MIN				 : 159
 		50th PERCENTILE	 : 2
 		90th PERCENTILE	 : 7
 		95th PERCENTILE	 : 10
 		99th PERCENTILE	 : 17
-		MEAN		 : 3.059
+		MEAN			 : 3.059
 	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 7
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
 		99th PERCENTILE	 : 7
-		MEAN		 : 3.613
+		MEAN			 : 3.613
 	Discovered Path Count
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 515
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 515
 		50th PERCENTILE	 : 2
 		90th PERCENTILE	 : 15
 		95th PERCENTILE	 : 25
 		99th PERCENTILE	 : 68
-		MEAN		 : 6.975
+		MEAN			 : 6.975
 
 **- Unweighted Dijkstra -**
 
 	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 12580
+		COUNT			 : 1000
+		MIN				 : 0
+		MIN				 : 12580
 		50th PERCENTILE	 : 132
 		90th PERCENTILE	 : 652
 		95th PERCENTILE	 : 1064
 		99th PERCENTILE	 : 2203
-		MEAN		 : 293.552
+		MEAN			 : 293.552
 	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 7
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
 		99th PERCENTILE	 : 7
-		MEAN		 : 3.613
+		MEAN			 : 3.613
 	Discovered Path Count
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 515
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 515
 		50th PERCENTILE	 : 2
 		90th PERCENTILE	 : 15
 		95th PERCENTILE	 : 25
 		99th PERCENTILE	 : 68
-		MEAN		 : 6.975
+		MEAN			 : 6.975
 
 **- Weighted Dijkstra -**
 
 	Run Time (ms)
-		COUNT		 : 1000
-		MIN		 : 0
-		MAX		 : 609
+		COUNT			 : 1000
+		MIN				 : 0
+		MIN				 : 609
 		50th PERCENTILE	 : 129
 		90th PERCENTILE	 : 209
 		95th PERCENTILE	 : 241
 		99th PERCENTILE	 : 362
-		MEAN		 : 124.228
+		MEAN			 : 124.228
 	Path Length
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 32
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 32
 		50th PERCENTILE	 : 13
 		90th PERCENTILE	 : 21
 		95th PERCENTILE	 : 23
 		99th PERCENTILE	 : 28
-		MEAN		 : 13.146
+		MEAN			 : 13.146
 	Discovered Path Count
-		COUNT		 : 1000
-		MIN		 : 1
-		MAX		 : 12
+		COUNT			 : 1000
+		MIN				 : 1
+		MIN				 : 12
 		50th PERCENTILE	 : 1
 		90th PERCENTILE	 : 3
 		95th PERCENTILE	 : 4
 		99th PERCENTILE	 : 8
-		MEAN		 : 1.665
+		MEAN			 : 1.665
 
 
 ### Recreate at home
