@@ -213,7 +213,7 @@ After step 4. below, the project directory should look as follows:
 
 	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator
 
- **(3) Build neo4j-importer (see README):** 
+ **(3) Download and build neo4j-import (see [README](https://github.com/dmontag/neo4j-import/blob/master/README.textile)):** 
 
 	https://github.com/dmontag/neo4j-import
 
