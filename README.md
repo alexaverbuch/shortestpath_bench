@@ -205,22 +205,22 @@ After step 4. below, the project directory should look as follows:
 		target/
 			...
 
- 1. **Compile:** 
+ **(1) Compile:** 
  
-`mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6`
+	mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
 
- 2. **Generate Graph .csv Files:** 
+**(2) Generate Graph .csv Files:** 
 
-`mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator`
+	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator
 
- 3. **Build neo4j-importer (see README):** 
+ **(3) Build neo4j-importer (see README):** 
 
-`https://github.com/dmontag/neo4j-import`
+	https://github.com/dmontag/neo4j-import
 
- 4. **Load Generated .csv Files into Neo4j:** 
+ **(4) Load Generated .csv Files into Neo4j:** 
 
-`./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv`
+	./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv
 
- 5. **Run Benchmark (select 'single' to find one shortest path OR 'all' to find all shortest paths):**
+ **(5) Run Benchmark (select 'single' to find one shortest path OR 'all' to find all shortest paths):**
 
-`MAVEN_OPTS="-server -XX:+UseConcMarkSweepGC -Xmx512m" mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench -Dexec.arguments="single"`
+	MAVEN_OPTS="-server -XX:+UseConcMarkSweepGC -Xmx512m" mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench -Dexec.arguments="single"
