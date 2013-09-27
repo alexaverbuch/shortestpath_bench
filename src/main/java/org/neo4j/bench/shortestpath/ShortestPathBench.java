@@ -3,7 +3,6 @@ package org.neo4j.bench.shortestpath;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +22,6 @@ import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.helpers.collection.IteratorUtil;
 import org.neo4j.kernel.Traversal;
 
-// mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench
 public class ShortestPathBench
 {
     public static void main( String[] args ) throws IOException
