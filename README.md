@@ -185,7 +185,23 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 
 Follow these instructions if you wish to recreate the experiment at home.
 
-After step (4) below, the project directory should look as follows:
+ **(1) Compile:** 
+ 
+	mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+
+**(2) Generate Graph .csv Files:** 
+
+	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator
+
+ **(3) Download and build neo4j-import (see [README](https://github.com/dmontag/neo4j-import/blob/master/README.textile)):** 
+
+	https://github.com/dmontag/neo4j-import
+
+ **(4) Load Generated .csv Files into Neo4j using neo4j-import:** 
+
+	./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv /path/to/shortestpath_bench/data/generated/relationships.csv
+
+After this step the project directory should look as follows:
 
 	shortestpath_bench/
 		data/
@@ -204,22 +220,6 @@ After step (4) below, the project directory should look as follows:
 			...
 		target/
 			...
-
- **(1) Compile:** 
- 
-	mvn clean compile -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
-
-**(2) Generate Graph .csv Files:** 
-
-	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator
-
- **(3) Download and build neo4j-import (see [README](https://github.com/dmontag/neo4j-import/blob/master/README.textile)):** 
-
-	https://github.com/dmontag/neo4j-import
-
- **(4) Load Generated .csv Files into Neo4j using neo4j-import:** 
-
-	./run.sh /path/to/shortestpath_bench/db /path/to/shortestpath_bench/data/generated/nodes.csv ../shortestpath_bench/data/generated/relationships.csv
 
  **(5) Run Benchmark (select 'single' to find one shortest path OR 'all' to find all shortest paths):**
 
