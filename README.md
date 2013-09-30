@@ -191,7 +191,9 @@ Follow these instructions if you wish to recreate the experiment at home.
 
 **(2) Generate Graph .csv Files:** 
 
-	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator
+Parameter specifies if each Facebook relationships should be modeled as 1 Neo4j relationship or 2 (one in each direction) 
+ 	
+	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator -Dexec.arguments="<bidirectional|unidirectional>"
 
  **(3) Download and build neo4j-import (see [README](https://github.com/dmontag/neo4j-import/blob/master/README.textile)):** 
 
@@ -221,6 +223,10 @@ After this step the project directory should look as follows:
 		target/
 			...
 
- **(5) Run Benchmark (select 'single' to find one shortest path OR 'all' to find all shortest paths):**
+ **(5) Run Benchmark:**
 
-	MAVEN_OPTS="-server -XX:+UseConcMarkSweepGC -Xmx512m" mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench -Dexec.arguments="single"
+First parameter specifies if algorithm should find one shortest path or all shortest paths
+ 	
+Second parameter specific if relationships should be traversed in both directions or outgoing only
+
+	MAVEN_OPTS="-server -XX:+UseConcMarkSweepGC -Xmx512m" mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.ShortestPathBench -Dexec.arguments="<single|all> <out|both>"
