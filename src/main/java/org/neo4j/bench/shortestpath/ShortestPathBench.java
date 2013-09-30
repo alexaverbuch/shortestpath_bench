@@ -24,11 +24,31 @@ import org.neo4j.kernel.Traversal;
 
 public class ShortestPathBench
 {
+    private static String PATHS_SINGLE = "single";
+    private static String PATHS_ALL = "all";
+    private static String DIRECTION_BOTH = "both";
+    private static String DIRECTION_OUT = "out";
+
     public static void main( String[] args ) throws IOException
     {
-        if ( args.length == 0 || ( args[0].equals( "all" ) == false && args[0].equals( "single" ) == false ) )
+        String errMsg = String.format( "Expected 2 parameters, found %s. Parameters should be <%s|%s> <%s|%s>\n",
+                args.length, PATHS_SINGLE, PATHS_ALL, DIRECTION_BOTH, DIRECTION_OUT );
+
+        if ( args.length != 2 )
         {
-            System.out.println( "\nERROR\nExpected parameter: 'all' OR 'single'\n" );
+            System.out.println( errMsg );
+            return;
+        }
+
+        if ( args[0].equals( PATHS_ALL ) == false && args[0].equals( PATHS_SINGLE ) == false )
+        {
+            System.out.println( String.format( "Unexpected value for parameter 0: %s\n%s", args[0], errMsg ) );
+            return;
+        }
+
+        if ( args[1].equals( DIRECTION_BOTH ) == false && args[1].equals( DIRECTION_OUT ) == false )
+        {
+            System.out.println( String.format( "Unexpected value for parameter 1: %s\n%s", args[1], errMsg ) );
             return;
         }
 
@@ -42,8 +62,11 @@ public class ShortestPathBench
 
         int runCount = 1000;
         List<Pair<Node>> startAndEndNodes = loadStartAndEndNodes( db, runCount );
+        Direction direction = ( args[1].equals( DIRECTION_BOTH ) ) ? Direction.BOTH : Direction.OUTGOING;
+        System.out.println( "Paths =\t\t" + args[0] );
+        System.out.println( "Direction =\t" + direction );
 
-        Expander expander = Traversal.expanderForAllTypes();
+        Expander expander = Traversal.expanderForAllTypes( direction );
 
         CostEvaluator<Double> evaluator = CommonEvaluators.doubleCostEvaluator( "weight" );
         int maxDepth = Integer.MAX_VALUE;
@@ -79,39 +102,67 @@ public class ShortestPathBench
 
     public static String runFindSinglePath( PathFinder<? extends Path> pathFinder, List<Pair<Node>> startAndEndNodes )
     {
-        Histogram timeHistogram = new Histogram( TimeUnit.MILLISECONDS.convert( 30, TimeUnit.SECONDS ), 5 );
+        Histogram timeHistogram = new Histogram( TimeUnit.MILLISECONDS.convert( 10, TimeUnit.MINUTES ), 5 );
         Histogram pathLengthHistogram = new Histogram( 10000, 5 );
-        Path path = null;
+        long longestRuntime = Long.MIN_VALUE;
+        long longestRunTimeStartNodeId = -1;
+        long longestRunTimeEndNodeId = -1;
+        long longestRunTimePathLength = -1;
 
         for ( Pair<Node> startAndEndNode : startAndEndNodes )
         {
             long startTime = System.currentTimeMillis();
-            path = pathFinder.findSinglePath( startAndEndNode.getFirst(), startAndEndNode.getSecond() );
+            Path path = pathFinder.findSinglePath( startAndEndNode.getFirst(), startAndEndNode.getSecond() );
             long runTime = System.currentTimeMillis() - startTime;
+            if ( path == null ) continue;
             timeHistogram.recordValue( runTime );
             pathLengthHistogram.recordValue( path.length() );
+            if ( runTime > longestRuntime )
+            {
+                longestRuntime = runTime;
+                longestRunTimeStartNodeId = startAndEndNode.getFirst().getId();
+                longestRunTimeEndNodeId = startAndEndNode.getSecond().getId();
+                longestRunTimePathLength = path.length();
+            }
         }
-        return histogramString( timeHistogram, "Run Time (ms)" ) + histogramString( pathLengthHistogram, "Path Length" );
+        String longestRunTimeString = String.format( "\tLongest Run\t\t : Time[%s(ms)] Start[%s] End[%s] Length[%s]\n",
+                longestRuntime, longestRunTimeStartNodeId, longestRunTimeEndNodeId, longestRunTimePathLength );
+        return histogramString( timeHistogram, "Run Time (ms)" ) + histogramString( pathLengthHistogram, "Path Length" )
+               + longestRunTimeString;
     }
 
     public static String runFindAllPaths( PathFinder<? extends Path> pathFinder, List<Pair<Node>> startAndEndNodes )
     {
-        Histogram timeHistogram = new Histogram( TimeUnit.MILLISECONDS.convert( 30, TimeUnit.SECONDS ), 5 );
+        Histogram timeHistogram = new Histogram( TimeUnit.MILLISECONDS.convert( 10, TimeUnit.MINUTES ), 5 );
         Histogram pathLengthHistogram = new Histogram( 10000, 5 );
         Histogram pathCountHistogram = new Histogram( 10000, 5 );
+        long longestRuntime = Long.MIN_VALUE;
+        long longestRunTimeStartNodeId = -1;
+        long longestRunTimeEndNodeId = -1;
+        long longestRunTimePathLength = -1;
 
         for ( Pair<Node> startAndEndNode : startAndEndNodes )
         {
             long startTime = System.currentTimeMillis();
             Iterable<? extends Path> paths = pathFinder.findAllPaths( startAndEndNode.getFirst(),
                     startAndEndNode.getSecond() );
-            pathLengthHistogram.recordValue( paths.iterator().next().length() );
+            Path path = paths.iterator().next();
+            pathLengthHistogram.recordValue( path.length() );
             long runTime = System.currentTimeMillis() - startTime;
             pathCountHistogram.recordValue( IteratorUtil.count( paths ) );
             timeHistogram.recordValue( runTime );
+            if ( runTime > longestRuntime )
+            {
+                longestRuntime = runTime;
+                longestRunTimeStartNodeId = startAndEndNode.getFirst().getId();
+                longestRunTimeEndNodeId = startAndEndNode.getSecond().getId();
+                longestRunTimePathLength = path.length();
+            }
         }
+        String longestRunTimeString = String.format( "\tLongest Run\t\t : Time[%s(ms)] Start[%s] End[%s] Length[%s]\n",
+                longestRuntime, longestRunTimeStartNodeId, longestRunTimeEndNodeId, longestRunTimePathLength );
         return histogramString( timeHistogram, "Run Time (ms)" ) + histogramString( pathLengthHistogram, "Path Length" )
-               + histogramString( pathCountHistogram, "Discovered Path Count" );
+               + histogramString( pathCountHistogram, "Discovered Path Count" ) + longestRunTimeString;
     }
 
     public static String histogramString( Histogram histogram, String name )
