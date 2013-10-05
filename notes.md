@@ -191,7 +191,9 @@ Follow these instructions if you wish to recreate the experiment at home.
 
 **(2) Generate Graph .csv Files:** 
 
-	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator -Dexec.arguments="undirected"
+Parameter specifies if each Facebook relationships should be modeled as 1 Neo4j relationship or 2 (one in each direction) 
+ 	
+	mvn exec:java -Dexec.mainClass=org.neo4j.bench.shortestpath.InputFilesCreator -Dexec.arguments="<undirected|directed>"
 
  **(3) Download and build neo4j-import (see [README](https://github.com/dmontag/neo4j-import/blob/master/README.textile)):** 
 

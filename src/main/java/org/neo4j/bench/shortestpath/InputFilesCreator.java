@@ -11,8 +11,8 @@ import java.util.Set;
 
 public class InputFilesCreator
 {
-    private static String DIRECTED_FALSE = "unidirectional";
-    private static String DIRECTED_TRUE = "bidirectional";
+    private static String DIRECTED_FALSE = "undirected";
+    private static String DIRECTED_TRUE = "directed";
 
     public static void main( String[] args ) throws IOException
     {
