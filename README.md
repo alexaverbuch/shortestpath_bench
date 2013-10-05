@@ -30,7 +30,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Run Time (ms)
 		COUNT			 : 1000
 		MIN				 : 0
-		MIN				 : 222
+		MAX				 : 222
 		50th PERCENTILE	 : 1
 		90th PERCENTILE	 : 6
 		95th PERCENTILE	 : 10
@@ -39,7 +39,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Path Length
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 7
+		MAX				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
@@ -51,7 +51,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Run Time (ms)
 		COUNT			 : 1000
 		MIN				 : 0
-		MIN				 : 12365
+		MAX				 : 12365
 		50th PERCENTILE	 : 143
 		90th PERCENTILE	 : 651
 		95th PERCENTILE	 : 1093
@@ -60,7 +60,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Path Length
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 7
+		MAX				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
@@ -72,7 +72,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Run Time (ms)
 		COUNT			 : 1000
 		MIN				 : 0
-		MIN				 : 589
+		MAX				 : 589
 		50th PERCENTILE	 : 134
 		90th PERCENTILE	 : 209
 		95th PERCENTILE	 : 241
@@ -81,7 +81,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Path Length
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 32
+		MAX				 : 32
 		50th PERCENTILE	 : 13
 		90th PERCENTILE	 : 21
 		95th PERCENTILE	 : 23
@@ -95,7 +95,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Run Time (ms)
 		COUNT			 : 1000
 		MIN				 : 0
-		MIN				 : 159
+		MAX				 : 159
 		50th PERCENTILE	 : 2
 		90th PERCENTILE	 : 7
 		95th PERCENTILE	 : 10
@@ -104,7 +104,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Path Length
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 7
+		MAX				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
@@ -113,7 +113,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Discovered Path Count
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 515
+		MAX				 : 515
 		50th PERCENTILE	 : 2
 		90th PERCENTILE	 : 15
 		95th PERCENTILE	 : 25
@@ -125,7 +125,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Run Time (ms)
 		COUNT			 : 1000
 		MIN				 : 0
-		MIN				 : 12580
+		MAX				 : 12580
 		50th PERCENTILE	 : 132
 		90th PERCENTILE	 : 652
 		95th PERCENTILE	 : 1064
@@ -134,7 +134,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Path Length
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 7
+		MAX				 : 7
 		50th PERCENTILE	 : 4
 		90th PERCENTILE	 : 5
 		95th PERCENTILE	 : 6
@@ -143,7 +143,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Discovered Path Count
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 515
+		MAX				 : 515
 		50th PERCENTILE	 : 2
 		90th PERCENTILE	 : 15
 		95th PERCENTILE	 : 25
@@ -155,7 +155,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Run Time (ms)
 		COUNT			 : 1000
 		MIN				 : 0
-		MIN				 : 609
+		MAX				 : 609
 		50th PERCENTILE	 : 129
 		90th PERCENTILE	 : 209
 		95th PERCENTILE	 : 241
@@ -164,7 +164,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Path Length
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 32
+		MAX				 : 32
 		50th PERCENTILE	 : 13
 		90th PERCENTILE	 : 21
 		95th PERCENTILE	 : 23
@@ -173,7 +173,7 @@ Each algorithm is run 1000 times, using different (well, randomly selected) star
 	Discovered Path Count
 		COUNT			 : 1000
 		MIN				 : 1
-		MIN				 : 12
+		MAX				 : 12
 		50th PERCENTILE	 : 1
 		90th PERCENTILE	 : 3
 		95th PERCENTILE	 : 4
